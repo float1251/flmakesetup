@@ -6,7 +6,7 @@ with open("README.rst") as f:
 
 setup(
     name="flmakesetup",
-    version="0.0.2",
+    version="0.0.3",
     author="takahrio iwatani",
     author_email="taka.05022002@gmail.com",
     description="easy create setup.py",
@@ -17,5 +17,6 @@ setup(
         "console_scripts":[
             "flmakesetup = flmakesetup:main"
         ]
-    }
+    },
+    install_requires=["Jinja2>=2.7.3"],
 )
