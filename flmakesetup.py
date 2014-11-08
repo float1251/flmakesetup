@@ -54,7 +54,7 @@ def create_setuppy():
     print(template.render(**conf))
     # fileをexportする
     global path
-    p = os.path.join(path, "setup.py")
+    p = os.path.join(path, "sample.py")
     if os.path.exists(p):
         print("setup.py already exist...", file=sys.stderr)
         return
