@@ -4,7 +4,6 @@ How To Install
     
     pip install flmakesetup
 
-
 How To use
 --------------
 create setup.py::
@@ -14,7 +13,6 @@ create setup.py::
 show classifiers::
 
     flmakesetup show-classifiers
-
 
 License
 --------
