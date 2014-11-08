@@ -12,10 +12,10 @@ setup(
     description="easy create setup.py",
     long_description=readme,
     url="https://github.com/float1251/flmakesetup",
-    py_modules=["autosetup"],
+    py_modules=["flmakesetup"],
     entry_points={
         "console_scripts":[
-            "create-setuppy = autosetup:create_setuppy"
+            "flmakesetup = flmakesetup:main"
         ]
     }
 )

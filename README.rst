@@ -7,13 +7,17 @@ How To Install
 
 How To use
 --------------
-::
+create setup.py::
 
-    create-setuppy
+    flmakesetup create-setuppy
+
+show classifiers::
+
+    flmakesetup show-classifiers
 
 
 License
 --------
 MIT License
 
-**under development**
+**currently under development**

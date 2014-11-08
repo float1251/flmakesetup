@@ -60,3 +60,19 @@ def create_setuppy():
         return
     file = open(p, mode="w")
     file.write(template.render(**conf))
+
+def main():
+    if len(sys.argv)>1:
+        arg = sys.argv[1]
+    else:
+        print("no suitable command...", file=sys.stderr)
+        return
+    if arg == "create-setuppy":
+        create_setuppy()
+    elif arg == "show-classifiers":
+        show_classifiers()
+    else:
+        print("no suitable command...", file=sys.stderr)
+
+if __name__ == "__main__":
+    main()
