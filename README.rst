@@ -8,7 +8,7 @@ How To use
 --------------
 create setup.py::
 
-    flmakesetup create-setuppy
+    flmakesetup create
 
 show classifiers::
 

@@ -6,7 +6,7 @@ with open("README.rst") as f:
 
 setup(
     name="flmakesetup",
-    version="0.0.6",
+    version="0.0.7",
     author="takahrio iwatani",
     author_email="taka.05022002@gmail.com",
     description="easy create setup.py",
@@ -21,4 +21,9 @@ setup(
         ]
     },
     install_requires=["Jinja2>=2.7.3"],
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+    ],
 )
