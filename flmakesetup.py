@@ -50,11 +50,11 @@ def create_setuppy():
 
     # 空白や改行の設定をする
     env = Environment(loader=PackageLoader("flmakesetup"), trim_blocks=True, lstrip_blocks=True)
-    template = env.get_template("setup.py")
+    template = env.get_template("setup.tmpl")
     print(template.render(**conf))
     # fileをexportする
     global path
-    p = os.path.join(path, "sample.py")
+    p = os.path.join(path, "setup.py")
     if os.path.exists(p):
         print("setup.py already exist...", file=sys.stderr)
         return

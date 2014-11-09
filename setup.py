@@ -14,6 +14,7 @@ setup(
     url="https://github.com/float1251/flmakesetup",
     py_modules=["flmakesetup"],
     packages=find_packages(),
+    include_package_data=True,
     entry_points={
         "console_scripts":[
             "flmakesetup = flmakesetup:main"
