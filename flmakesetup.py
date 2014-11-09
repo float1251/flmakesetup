@@ -44,8 +44,8 @@ def create_setuppy():
     conf = {}
     conf["name"] = _input_required_value("name:")
     conf["version"] = _input_required_value("version:")
-    conf["author"] = _input_required_value("auther(default={}):".format(username), default=username)
-    conf["author_email"] = _input_optional_value("auther_email:")
+    conf["author"] = _input_required_value("author(default={}):".format(username), default=username)
+    conf["author_email"] = _input_optional_value("author_email:")
     conf["test_suite"] = _input_optional_value("test_suite:")
 
     # 空白や改行の設定をする
