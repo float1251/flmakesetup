@@ -1,4 +1,5 @@
 import os, sys
+from argparse import ArgumentParser
 import urllib.request as req
 from jinja2 import Environment, PackageLoader
 
@@ -30,16 +31,19 @@ def _input_optional_value(message, default=None):
         return default
 
 
-def show_classifiers():
+def show_classifiers(args):
     """
-    classifiersを表示する
+    classifiersを表示する.
     """
     res = req.urlopen("https://pypi.python.org/pypi?%3Aaction=list_classifiers")
     content = res.read()
-    print(content.decode())
+    print(content.decode(), end="")
 
 
-def create_setuppy():
+def create_setuppy(args):
+    """
+    setup.pyを生成する.
+    """
     print("Start create setup.py")
     conf = {}
     conf["name"] = _input_required_value("name:")
@@ -61,18 +65,37 @@ def create_setuppy():
     file = open(p, mode="w")
     file.write(template.render(**conf))
 
+def setup_test_environment(args):
+    """
+    testに必要なライブラリ等をinstallする.
+    """
+    pass
+
+
 def main():
-    if len(sys.argv)>1:
-        arg = sys.argv[1]
+
+    parser = ArgumentParser()
+    sub_parser = parser.add_subparsers()
+
+    # settings create
+    create_parser = sub_parser.add_parser("create", help="create setup.py")
+    create_parser.set_defaults(func=create_setuppy)
+
+    # setttings show-classifiers
+    show_parser = sub_parser.add_parser("show-classifiers", help="show classifiers list")
+    show_parser.set_defaults(func=show_classifiers)
+
+    # setup test-env
+    #test_env_parser = sub_parser.add_parser("setup-test-env", help="setup test environment")
+    #test_env_parser.set_defaults(func=setup_test_environment)
+
+    args = parser.parse_args()
+
+    if hasattr(args, "func"):
+        args.func(args)
     else:
-        print("no suitable command...", file=sys.stderr)
-        return
-    if arg == "create-setuppy":
-        create_setuppy()
-    elif arg == "show-classifiers":
-        show_classifiers()
-    else:
-        print("no suitable command...", file=sys.stderr)
+        parser.parse_args(["-h"])
+
 
 if __name__ == "__main__":
     main()
